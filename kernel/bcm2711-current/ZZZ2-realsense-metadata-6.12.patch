@@ -1,7 +1,8 @@
-From 6a8badc8ba57cb0050c620f4d06c3c539ac0a401 Mon Sep 17 00:00:00 2001
+From 374aacc39db24c94e04627284443e6fe3b859111 Mon Sep 17 00:00:00 2001
 From: Chaiyawan Auepanwiriyakul <Chaiyawan.Auepanwiriyakul@uni-bayreuth.de>
-Date: Fri, 7 Mar 2025 15:57:02 +0100
-Subject: [PATCH] Enabling UVC Metadata attributes with rockchip64 6.12 Kernel
+Date: Fri, 7 Mar 2025 16:01:41 +0100
+Subject: [PATCH] Enabling UVC Metadata attributes with Raspberry Pi 64-bit
+ 6.12 Kernel
 
 ---
  drivers/media/usb/uvc/uvc_driver.c | 189 +++++++++++++++++++++++++++++
@@ -9,7 +10,7 @@ Subject: [PATCH] Enabling UVC Metadata attributes with rockchip64 6.12 Kernel
  2 files changed, 191 insertions(+)
 
 diff --git a/drivers/media/usb/uvc/uvc_driver.c b/drivers/media/usb/uvc/uvc_driver.c
-index a8ad35e0c622..eafb7a06e48a 100644
+index a8ad35e0c622..78fd53c27764 100644
 --- a/drivers/media/usb/uvc/uvc_driver.c
 +++ b/drivers/media/usb/uvc/uvc_driver.c
 @@ -3192,6 +3192,195 @@ static const struct usb_device_id uvc_ids[] = {
@@ -34,7 +35,7 @@ index a8ad35e0c622..eafb7a06e48a 100644
 +	  .bInterfaceSubClass	= 1,
 +	  .bInterfaceProtocol	= 0,
 +	  .driver_info		= UVC_INFO_META(V4L2_META_FMT_D4XX) },
-+	/* Intel D400/PSR depth camera*/
++	  /* Intel D400/PSR depth camera*/
 +	{ .match_flags		= USB_DEVICE_ID_MATCH_DEVICE
 +				| USB_DEVICE_ID_MATCH_INT_INFO,
 +	  .idVendor			= 0x8086,
@@ -43,7 +44,7 @@ index a8ad35e0c622..eafb7a06e48a 100644
 +	  .bInterfaceSubClass	= 1,
 +	  .bInterfaceProtocol	= 0,
 +	  .driver_info		= UVC_INFO_META(V4L2_META_FMT_D4XX) },
-+	/* Intel D450/AWGT depth camera */
++	  /* Intel D450/AWGT depth camera */
 +	{ .match_flags		= USB_DEVICE_ID_MATCH_DEVICE
 +				| USB_DEVICE_ID_MATCH_INT_INFO,
 +	  .idVendor			= 0x8086,
@@ -52,7 +53,7 @@ index a8ad35e0c622..eafb7a06e48a 100644
 +	  .bInterfaceSubClass	= 1,
 +	  .bInterfaceProtocol	= 0,
 +	  .driver_info		= UVC_INFO_META(V4L2_META_FMT_D4XX) },
-+	/* USB2 Descriptor, Depth Sensor */
++	  /* USB2 Descriptor, Depth Sensor */
 +	{ .match_flags		= USB_DEVICE_ID_MATCH_DEVICE
 +				| USB_DEVICE_ID_MATCH_INT_INFO,
 +	  .idVendor			= 0x8086,
@@ -70,7 +71,7 @@ index a8ad35e0c622..eafb7a06e48a 100644
 +	  .bInterfaceSubClass	= 1,
 +	  .bInterfaceProtocol	= 0,
 +	  .driver_info		= UVC_INFO_META(V4L2_META_FMT_D4XX) },
-+	/* Intel D420/PWG depth camera */
++	  /* Intel D420/PWG depth camera */
 +	{ .match_flags		= USB_DEVICE_ID_MATCH_DEVICE
 +				| USB_DEVICE_ID_MATCH_INT_INFO,
 +	  .idVendor			= 0x8086,
